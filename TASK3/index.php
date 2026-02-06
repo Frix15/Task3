@@ -3,9 +3,13 @@
 <head>
     <title>SQL Functions Demonstration</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
         table {
             border-collapse: collapse;
             width: 100%;
+            margin-bottom: 30px;
         }
         th, td {
             border: 1px solid black;
@@ -86,6 +90,25 @@
         <td><a href="sum.php" target="_blank">View Output</a></td>
     </tr>
 
+</table>
+
+<h3>MySQL Function Reference</h3>
+<p>Complete list of MySQL functions grouped by category.</p>
+
+<table>
+    <tr>
+        <th>Function</th>
+        <th>Category</th>
+    </tr>
+    <?php
+    $functions = include __DIR__ . '/mysql_functions.php';
+    foreach ($functions as $function) {
+        echo '<tr>';
+        echo '<td>' . htmlspecialchars($function['name']) . '</td>';
+        echo '<td>' . htmlspecialchars($function['category']) . '</td>';
+        echo '</tr>';
+    }
+    ?>
 </table>
 
 </body>
